@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --custom-gray: #F3F2F0;
+    --custom-gray-2:#231F2059;
+    --anthracite: #231F20;
+    --custom-red:#EB320A;
+    --hr-color:#B6B6B6;
+}
+body {
+    font-family: Roboto;
+    font-weight: 400;
+    margin: 0;
+}
+.u-hidden {
+    display: none;
+}

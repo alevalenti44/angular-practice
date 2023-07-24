@@ -1,0 +1,33 @@
+<section class="c-products">
+    <ng-container *ngFor='let product of productList'>
+        <article>
+            <div class="c-product">
+                <div *ngIf="getItemFromCart(product) !== undefined;" class="c-product__count-badge">
+                    {{getItemFromCart(product).quantity}}
+                </div>
+                <div class="c-product__img-placeholder" *ngIf="!product.outOfStock; else outOfStock"></div>
+                <ng-template #outOfStock>
+                    <div class="c-product__img-placeholder c-product__img-placeholder--out-of-stock">
+                        <p>Out of stock, sorry!</p>
+                    </div>
+                </ng-template>
+                <h2 class="c-product__name">{{product.name}}</h2>
+                <div class="c-product__footer">
+                    <span class="c-product__price">£{{product.price}}</span>
+                    <button *ngIf="getItemFromCart(product) === undefined; else inCart" (click)="addToCart(product,1)"
+                        [disabled]="product.outOfStock"
+                        [ngClass]="product.outOfStock ? 'c-product__btn c-product__btn--out-of-stock' : 'c-product__btn'">
+                        <img aria-hidden="true" src="../../assets/icons/basket.svg" />
+                        Add</button>
+                    <ng-template #inCart>
+                        <button (click)="changeQuantity('decrease',product)" class="c-product__counter">-</button>
+                        <span class="c-product__count">{{getItemFromCart(product).quantity}}</span>
+                        <button (click)="changeQuantity('increase',product)" class="c-product__counter">+</button>
+                    </ng-template>
+
+                </div>
+            </div>
+        </article>
+    </ng-container>
+    <button class="c-products__checkout" (click)="goToCheckout()">Go to checkout</button>
+</section>

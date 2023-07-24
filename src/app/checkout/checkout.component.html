@@ -1,0 +1,21 @@
+<section>
+    <div class="c-checkout">
+        <h1 class="c-checkout__title c-checkout__hr">Order summary</h1>
+        <ng-container class="c-checkout__items" *ngFor='let item of cartItems'>
+            <div class="c-checkout__item c-checkout__hr">
+                <div class="c-checkout__img"></div>
+                <span class="c-checkout__name">{{item.name}}</span>
+                <span class="c-checkout__price">£{{item.price}}</span>
+                <span class="c-checkout__quantity">{{item.quantity}}</span>
+            </div>
+        </ng-container>
+        <div class="c-checkout__summary" *ngIf="cartItems.length>0">
+            <span class="c-checkout__discounts">Discounts -£0.50</span>
+            <span class="c-checkout__total">Total £{{totalAmount}}</span>
+        </div>
+    </div>
+    <div class="c-checkout__footer">
+        <button class="c-checkout__btn c-checkout__btn--outline" (click)="goToProducts()">Continue shopping</button>
+        <a class="c-checkout__btn" href='/success'>Pay & Collect</a>
+    </div>
+</section>

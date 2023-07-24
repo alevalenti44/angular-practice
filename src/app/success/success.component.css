@@ -1,0 +1,81 @@
+.c-success {
+    width: 1080px;
+    height: 1700px;
+    background-color: var(--custom-gray);
+}
+
+.c-success p, .c-success h2, .c-success h1 {
+    margin-top: 0;
+}
+
+.c-success__title {
+    color: var(--anthracite);
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 4rem;
+}
+
+.c-success>* {
+    margin-bottom: 4rem;
+}
+
+.c-success__subtitle {
+    color: var(--anthracite);
+    font-size: 45px;
+    text-align: center;
+}
+
+.c-success__header {
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.c-success_img-container {
+    text-align: center;
+}
+
+.c-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.c-rating__input {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.c-rating__label {
+    cursor: pointer;
+    font-size: 0;
+    color: rgba(0, 0, 0, 0.2);
+    transition: color 0.1s ease-in-out;
+    margin-right: 32px;
+}
+
+.c-rating__label:before {
+    content: "★";
+    display: inline-block;
+    font-size: 97px;
+}
+
+.c-rating__input:checked~.c-rating__label {
+    color: var(--anthracite);
+}
+
+.c-rating__label:hover,
+.c-rating__label:hover~.c-rating__label {
+    color: var(--anthracite);
+}
+
+.c-rating__input:checked+.c-rating__label:hover,
+.c-rating__input:checked+.c-rating__label:hover~.c-rating__label,
+.c-rating__input:checked~.c-rating__label:hover,
+.c-rating__input:checked~.c-rating__label:hover~.c-rating__label,
+.c-rating__label:hover~.c-rating__input:checked~.c-rating__label {
+    color: var(--anthracite);
+}
